@@ -42,13 +42,4 @@ class ClientManager
         ]);
     }
 
-    // Récupération de tous les restaurants pour le formulaire
-    public function getRestos()
-    {
-        $stmt = $this->bdd->query("SELECT * FROM restaurant");
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\Client");
-
-        return $stmt->fetchAll();
-    }
-
 }

@@ -41,11 +41,10 @@ class ClientController
     // Affichage du formulaire de création d'un client
     public function create()
     {
-        // Récupération des restaurants pour le formulaire
-        $restos = $this->manager->getRestos();
+        $clients = $this->manager->getClients();
 
         // Chargement de la vue
-        require VIEWS . 'App/clients.php';
+        require VIEWS . 'App/clients_add.php';
     }
 
 }
