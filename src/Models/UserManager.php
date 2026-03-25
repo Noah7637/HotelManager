@@ -25,7 +25,7 @@ class UserManager
     // Recherche un utilisateur par son nom d'utilisateur
     public function find(String $username): User | false
     {
-        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE nom = ?");
+        $stmt = $this->bdd->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute(array($username));
         $stmt->setFetchMode(\PDO::FETCH_CLASS, "MVC\Models\User");
 
@@ -43,7 +43,7 @@ class UserManager
     // Insertion d'un nouvel utilisateur en base de données
     public function store($password)
     {
-        $stmt = $this->bdd->prepare("INSERT INTO Users(nom, password, role) VALUES (?, ?, ?)");
+        $stmt = $this->bdd->prepare("INSERT INTO Users(username, password, role) VALUES (?, ?, ?)");
         $stmt->execute(array(
             $_POST["username"],
             $password,

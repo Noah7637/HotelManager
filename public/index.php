@@ -17,6 +17,9 @@ $router->get('/', "HomeController@index");
 $router->get('/client',        "ClientController@index");
 $router->get('/client/create', "ClientController@create");
 $router->post('client/insert', "ClientController@insert");
+$router->get('/client/:id', "ClientController@affiche");
+$router->get('/client/delete/:id', "ClientController@delete");
+
 
 // Infrastructure
 $router->get('/infra', "InfraController@index");

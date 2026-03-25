@@ -12,12 +12,13 @@ if (!isset($_SESSION['user'])) {
             <h2 class="text-2xl font-black text-slate-900">Base de données Clients</h2>
             <p class="text-slate-400 text-sm italic">Synchronisé avec la table 'Client'</p>
         </div>
-        <button class="bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2">
+        <a href="/client/create"><button class="bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold flex items-center gap-2">
             <i class="fas fa-user-plus"></i> Importer
-        </button>
+        </button></a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php foreach ($clients ?? [] as $client) { ?>
+        <a href="/client/<?= htmlspecialchars($client->getId()) ?>">
         <div class="p-6 border border-slate-100 rounded-3xl bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all group">
             <div class="flex items-center gap-4 mb-4">
                 <div class="w-14 h-14 bg-blue-50 text-blue-600 flex items-center justify-center rounded-2xl font-black text-xl">
@@ -33,6 +34,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-widest"><i class="fas fa-lock"></i> MDP : ••••••••</div>
             </div>
         </div>
+        </a>
         <?php } ?>
     </div>
 </div>
